@@ -2,23 +2,28 @@
 import { gql, GraphQLClient } from "graphql-request";
 
 // files
-import { HeroBanner, FooterBanner, Product } from "../components";
+import { HeroBanner, FooterBanner, Category } from "../components";
+import styles from "../styles/Home.module.css";
 
-export default function Home({ banner }) {
+export default function Home({ banner, categories, discount }) {
+  // properties
   const bannerData = banner && banner[0];
+  const discountData = discount && discount[0];
+
   return (
     <>
       <HeroBanner bannerData={bannerData} />
-      <div className="products-heading">
-        <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
+      <div className={styles.cat__heading}>
+        <h2 className={styles.cat__title}>Best Selling Products</h2>
+        <p className={styles.cat__text}>Speakers of many variations</p>
       </div>
-      <div className="products-container">
-        {/* {products?.map((product) => (
-          <Product key={product._id} product={product} />
-        ))} */}
+      <div className={styles.categories}>
+        {categories &&
+          categories.map((category) => (
+            <Category key={category.id} category={category} />
+          ))}
       </div>
-      <FooterBanner />
+      <FooterBanner discountData={discountData} />
     </>
   );
 }
@@ -26,7 +31,7 @@ export default function Home({ banner }) {
 export const getServerSideProps = async () => {
   const client = new GraphQLClient(process.env.NEXT_PUBLIC_CMS_URL);
 
-  const query = gql`
+  const bannerQuery = gql`
     query Banner {
       banners {
         image {
@@ -45,11 +50,53 @@ export const getServerSideProps = async () => {
     }
   `;
 
-  const data = await client.request(query);
+  const categoryQuery = gql`
+    query Category {
+      categories {
+        featuredImage {
+          url
+        }
+        id
+        slug
+        title
+        excerpt
+      }
+    }
+  `;
+
+  const discountQuery = gql`
+    query Discounts {
+      discounts {
+        buttonText
+        description
+        id
+        largeText1
+        largeText2
+        saleTime
+        slug
+        smallText
+        title
+        discount
+        featuredImage {
+          url(
+            transformation: {
+              image: { resize: { fit: clip, height: 200, width: 200 } }
+            }
+          )
+        }
+      }
+    }
+  `;
+
+  const data = await client.request(bannerQuery);
+  const categoryData = await client.request(categoryQuery);
+  const discountsData = await client.request(discountQuery);
 
   return {
     props: {
       banner: data.banners,
+      categories: categoryData.categories,
+      discount: discountsData.discounts,
     },
   };
 };

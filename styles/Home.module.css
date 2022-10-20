@@ -1,0 +1,22 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.cat__heading {
+  text-align: center;
+  margin: 40px 0px;
+  color: var(--gray-700);
+}
+.cat__title {
+  font-size: 40px;
+  font-weight: 800;
+}
+.cat__text {
+  font-size: 16px;
+  font-weight: 200;
+}
