@@ -14,8 +14,8 @@ export default function Home({ banner, categories, discount }) {
     <>
       <HeroBanner bannerData={bannerData} />
       <div className={styles.cat__heading}>
-        <h2 className={styles.cat__title}>Best Selling Products</h2>
-        <p className={styles.cat__text}>Speakers of many variations</p>
+        <h2 className={styles.cat__title}>Amazing quality products</h2>
+        <p className={styles.cat__text}>What are you hunting for?</p>
       </div>
       <div className={styles.categories}>
         {categories &&

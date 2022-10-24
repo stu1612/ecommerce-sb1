@@ -14,7 +14,7 @@ export default function FooterBanner({ discountData }) {
     <div className={styles.footer__container}>
       <div className={styles.footer__description}>
         <div className={styles.container__left}>
-          <p className={styles.text__left}>{discount}</p>
+          <p className={styles.text__left}>{discount} off</p>
           <h3 className={styles.heading__left}>{largeText1}</h3>
           <h3 className={styles.heading__left}>{largeText2}</h3>
           <p className={styles.text__left}>{saleTime}</p>
@@ -29,14 +29,16 @@ export default function FooterBanner({ discountData }) {
             </button>
           </Link>
         </div>
-        <Image
+        {/* <Image
           src={featuredImage.url}
           layout="fill"
           objectFit="contain"
+          width={200}
+          height={200}
           alt={title}
           loader={ImageLoader}
-          className="footer-banner-image"
-        />
+          className={styles.footer__image}
+        /> */}
       </div>
     </div>
   );

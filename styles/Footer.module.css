@@ -53,3 +53,48 @@
   font-weight: 800;
   font-size: 60px;
 }
+
+.footer__image {
+  position: absolute;
+  top: -35%;
+  left: 8%;
+  top: -25%;
+  left: 25%;
+}
+
+@media screen and (max-width: 800px) {
+  .footer__container {
+    height: 560px;
+    margin-top: 80px;
+  }
+
+  .footer__description {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer__image {
+    width: 77%;
+    left: 30%;
+    top: 6%;
+    height: 56%;
+  }
+
+  .heading__left {
+    font-weight: 900;
+    font-size: 50px;
+    margin-left: 5px;
+  }
+
+  .text__left {
+    margin: 18px;
+  }
+
+  .heading__right {
+    font-size: 45px;
+  }
+
+  .text__right {
+    font-size: 18px;
+  }
+}
