@@ -50,16 +50,22 @@
 
 .hero__button {
   border-radius: 25px;
-  padding: 1rem 2rem;
+  border: 2px solid var(--secondary);
+  padding: 0.8rem 1.6rem;
   background-color: var(--secondary);
   color: white;
-  border: none;
   margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   z-index: 10000 !important;
   pointer-events: fill;
+  transition: all 250ms ease-in;
+  text-transform: uppercase;
+}
+
+.hero__button:hover {
+  background: transparent;
 }
 
 .hero__description {
@@ -78,7 +84,7 @@
 
 .text {
   color: var(--gray-300);
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   font-weight: 100;
   font-size: 16px;
 }
@@ -94,6 +100,9 @@
     width: 40vw;
     opacity: 0.7;
     z-index: 0;
+  }
+  .hero__button {
+    margin-bottom: 4rem;
   }
   .hero__content {
     width: min(80%, 1400px);

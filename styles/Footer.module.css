@@ -1,100 +1,104 @@
 .footer__container {
-  padding: 100px 40px;
+  padding: 80px 40px;
   background: var(--gray-700);
   position: relative;
   height: 80vh;
   line-height: 1;
   width: 100%;
   margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer__description {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  width: min(80%, 1400px);
+}
+
+.container__right,
+.container__left {
+  line-height: 1.4;
+}
+
+.highlight {
+  background-color: rgb(215, 63, 63);
+  display: inline-block;
+  padding: 1rem 3rem;
+}
+
+.thin {
+  font-weight: 100;
+  font-size: 3rem;
+  color: var(--gray-100);
+}
+.heading {
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--gray-100);
+}
+
+.light {
+  color: var(--primary);
 }
 
 .footer__button {
   border-radius: 25px;
-  padding: 1rem 2rem;
+  border: 2px solid var(--secondary);
+  padding: 0.8rem 1.6rem;
   background-color: var(--secondary);
-  color: var(--gray-900);
-  border: none;
+  color: white;
   margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  z-index: 10000 !important;
+  pointer-events: fill;
+  transition: all 250ms ease-in;
+  text-transform: uppercase;
 }
 
-.container__left {
-  line-height: 1.4;
-  color: var(--gray-100);
-}
-
-.text__left {
-  margin: 18px;
-}
-
-.heading__left {
-  font-weight: 900;
-  font-size: 80px;
-  margin-left: 25px;
+.footer__button:hover {
+  background: transparent;
 }
 
 .container__right {
-  line-height: 1.4;
-  color: var(--gray-100);
+  display: none;
 }
 
-.text__right {
-  font-size: 18px;
-}
-
-.heading__right {
-  font-weight: 800;
-  font-size: 60px;
+.image__wrapper {
+  position: relative;
 }
 
 .footer__image {
   position: absolute;
-  top: -35%;
-  left: 8%;
-  top: -25%;
-  left: 25%;
+  height: 80vh;
+  width: 300px;
+  object-fit: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
 }
 
-@media screen and (max-width: 800px) {
-  .footer__container {
-    height: 560px;
-    margin-top: 80px;
+@media screen and (min-width: 800px) {
+  .container__left {
+    text-align: left;
   }
-
-  .footer__description {
-    flex-wrap: wrap;
-    gap: 20px;
+  .container__right {
+    display: block;
+    text-align: right;
   }
 
   .footer__image {
-    width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%;
+    opacity: 1;
   }
 
-  .heading__left {
-    font-weight: 900;
-    font-size: 50px;
-    margin-left: 5px;
-  }
-
-  .text__left {
-    margin: 18px;
-  }
-
-  .heading__right {
-    font-size: 45px;
-  }
-
-  .text__right {
-    font-size: 18px;
+  .buttons {
+    position: absolute;
+    bottom: 20%;
   }
 }
