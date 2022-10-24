@@ -1,0 +1,127 @@
+.container {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 40px;
+  margin-top: 60px;
+}
+
+.container__featuredImage {
+  position: relative;
+}
+
+.featuredImage {
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.container__smallImages {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.container__description {
+  line-height: 1.4;
+}
+
+.reviews {
+  color: #9b7924;
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.container__detailsText {
+  width: 400px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.container__qty {
+  margin-top: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+}
+
+.heading__thin {
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.highlight {
+  background: var(--secondary);
+  display: inline-block;
+  padding: 0.3rem 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buttons:last-child {
+  margin-top: 1rem;
+}
+
+.btn {
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.btn:first-child {
+  background-color: rgb(166, 35, 35);
+  color: #fff;
+}
+
+.btn:first-child:hover {
+  background-color: rgb(138, 18, 18);
+}
+
+.btn:last-child {
+  background-color: rgb(85, 181, 61);
+  color: #fff;
+}
+.btn:last-child:hover {
+  background-color: rgb(61, 148, 39);
+  color: #fff;
+}
+
+.btn__choice {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  background: var(--gray-300);
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.btn__choice:hover {
+  background: var(--gray-900);
+  color: var(--gray-300);
+}
+
+.btn__choice:last-child {
+  margin-left: 10px;
+}
+
+.marquee {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow-x: hidden;
+}

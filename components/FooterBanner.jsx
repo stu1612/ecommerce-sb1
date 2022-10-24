@@ -25,7 +25,7 @@ export default function FooterBanner({ discountData }) {
           <p className={styles.light}>{description}</p>
         </div>
         <div className={styles.buttons}>
-          <Link href={`/product/${product}`}>
+          <Link href={`/products/${product}`}>
             <button type="button" className={styles.footer__button}>
               {buttonText}
             </button>

@@ -31,7 +31,7 @@ export default function HeroBanner({ bannerData }) {
         />
       </div>
       <div className={styles.hero__description}>
-        <Link href={`/product/ID`}>
+        <Link href={`/products/ID`}>
           <button type="button" className={styles.hero__button}>
             {buttonText}
           </button>

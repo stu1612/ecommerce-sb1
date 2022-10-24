@@ -11,7 +11,7 @@ export default function Category({ category }) {
 
   return (
     <div>
-      <Link href={`/product/${slug}`}>
+      <Link href={`/products/${slug}`}>
         <div className={styles.category}>
           <Image
             src={featuredImage.url}
