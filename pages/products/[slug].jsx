@@ -11,21 +11,23 @@ import {
 // files
 import ImageLoader from "../../utils/ImageLoader";
 import styles from "../../styles/Products.module.css";
+import Category from "../../components/Category";
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_CMS_URL);
 
 export default function Products({ products }) {
   const product = products && products[0];
-  const { image, model, price, title, details } = product;
+  const { featuredImage, model, price, title, details } = product;
   return (
     <div>
       <div className={styles.container}>
         <div className={styles.container__featuredImage}>
           <Image
-            src={image.url}
+            src={featuredImage.url}
             alt={model}
             width="300"
             height="300"
+            loader={ImageLoader}
             className={styles.featuredImage}
           />
         </div>
@@ -79,7 +81,11 @@ export default function Products({ products }) {
       <div className="maylike-products-wrapper">
         <h2>You may also like</h2>
         <div className={styles.marquee}>
-          <div className="maylike-products-container track">products</div>
+          <div className="maylike-products-container track">
+            {products.map((item) => (
+              <Category key={item.id} category={item} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -92,12 +98,13 @@ export const getStaticProps = async ({ params }) => {
     query Categories($slug: String!) {
       category(where: { slug: $slug }) {
         products {
+          id
           model
           price
           slug
           title
           details
-          image {
+          featuredImage {
             url
           }
         }
